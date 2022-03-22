@@ -14,7 +14,7 @@ typedef struct {
 }Dog;
 
 // 子类构造函数声明
-void Dog_Ctor(Dog *this, int age, int weight, int legs);
+void Dog_Ctor(Dog *this, char * name, int age, int weight, int legs);
 
 // 子类属性声明
 inline int Dog_GetLegs(Dog *this);

@@ -5,6 +5,7 @@
 #include "animal.h"
 #include <assert.h>
 
+
 // 父类中虚函数的具体实现
 static void _Animal_Say(Animal *this){
     // 因为父类Animal是一个抽象的东西，不应该被实例化。
@@ -14,11 +15,12 @@ static void _Animal_Say(Animal *this){
 }
 
 // 父类构造函数实现
-void Animal_Ctor(Animal *this, int age, int weight){
+void Animal_Ctor(Animal *this, char * name, int age, int weight){
     // 首先定义一个虚表
     static struct AnimalVTable animal_vtbl = {&_Animal_Say};
     // 让虚表指针指向上面这个虚表
     this->vptr = &animal_vtbl;
+    strcpy(this->name, name);
     this->age = age;
     this->weight = weight;
 }

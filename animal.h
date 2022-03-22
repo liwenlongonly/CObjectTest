@@ -6,6 +6,7 @@
 #define CTEST_ANIMAL_H
 
 #include <stdio.h>
+#include <string.h>
 
 struct AnimalVTable;  // 父类虚表的前置声明
 
@@ -14,6 +15,7 @@ typedef struct {
     struct AnimalVTable *vptr; // 虚表指针
     int age;
     int weight;
+    char name[10];
 } Animal;
 
 // 父类中的虚表
@@ -25,7 +27,7 @@ struct AnimalVTable{
 void Animal_Say(Animal *this);
 
 // 构造函数声明
-void Animal_Ctor(Animal *this, int age, int weight);
+void Animal_Ctor(Animal *this, char * name, int age, int weight);
 
 // 获取父类属性声明
 inline int Animal_GetAge(Animal *this);

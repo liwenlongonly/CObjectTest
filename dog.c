@@ -5,14 +5,14 @@
 #include "dog.h"
 
 // 子类中虚函数的具体实现
-static void _Dog_Say(Dog *this){
-    printf("dag say \n");
+static void _Dog_Say(Animal *this){
+    printf("%s say \n", this->name);
 }
 
 // 子类构造函数实现
-void Dog_Ctor(Dog *this, int age, int weight, int legs){
+void Dog_Ctor(Dog *this, char * name, int age, int weight, int legs){
     // 首先调用父类构造函数。
-    Animal_Ctor(&this->parent, age, weight);
+    Animal_Ctor(&this->parent, name, age, weight);
     // 定义子类自己的虚函数表
     static struct AnimalVTable dog_vtbl = {_Dog_Say};
     // 把从父类中继承得到的虚表指针指向子类自己的虚表
