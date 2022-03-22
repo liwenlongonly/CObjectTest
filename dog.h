@@ -17,8 +17,6 @@ typedef struct {
 void Dog_Ctor(Dog *this, int age, int weight, int legs);
 
 // 子类属性声明
-inline int Dog_GetAge(Dog *this);
-inline int Dog_GetWeight(Dog *this);
 inline int Dog_GetLegs(Dog *this);
 
 #endif //CTEST_DOG_H

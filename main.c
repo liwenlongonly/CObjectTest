@@ -5,6 +5,14 @@
 
 // c语言面向对象开发，封装、继承、多态
 
+__attribute__((constructor)) void init(void){
+    printf("constructor run...\n");
+}
+
+__attribute__((destructor)) void finish(void){
+    printf("destructor run...\n");
+}
+
 int main() {
     printf("c语言面向对象开发，封装、继承、多态!\n");
 
@@ -17,10 +25,10 @@ int main() {
            Animal_GetWeight(&a));
 
     Dog d;
-    Dog_Ctor(&d, 1, 3, 4);
+    Dog_Ctor(&d, 10, 30, 4);
     printf("age = %d, weight = %d, legs = %d \n",
-           Dog_GetAge(&d),
-           Dog_GetWeight(&d),
+           Animal_GetAge(&d),
+           Animal_GetWeight(&d),
            Dog_GetLegs(&d));
 
     // 把子类对象赋值给父类指针
