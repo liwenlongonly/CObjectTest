@@ -6,7 +6,7 @@
 
 // 子类中虚函数的具体实现
 static void _Dog_Say(Animal *this){
-    printf("%s say \n", this->name);
+    Log(INFO,"%s say", this->name);
 }
 
 // 子类构造函数实现

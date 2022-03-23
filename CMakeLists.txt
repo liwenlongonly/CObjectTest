@@ -3,4 +3,8 @@ project(CObjectTest C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(CTest main.c struct_file.c struct_file.h animal.c animal.h dog.c dog.h rt_list.c rt_list.h)
+include_directories(${PROJECT_SOURCE_DIR}/)
+
+file(GLOB _Source   ${PROJECT_SOURCE_DIR}/*.*)
+
+add_executable(CTest ${_Source} log.c log.h)

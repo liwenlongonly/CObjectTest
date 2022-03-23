@@ -4,32 +4,33 @@
 #include "dog.h"
 #include "rt_list.h"
 
+
 // c语言面向对象开发，封装、继承、多态
 
 __attribute__((constructor)) void init(void){
-    printf("constructor run...\n");
+    Log(DEBUG,"constructor run...");
 }
 
 __attribute__((destructor)) void finish(void){
-    printf("destructor run...\n");
+    Log(DEBUG,"destructor run...");
 }
 
 int main() {
-    printf("c语言面向对象开发，封装、继承、多态!\n");
+    Log(ERROR, "c语言面向对象开发，封装、继承、多态!");
 
     // 在栈上创建一个对象
     Animal a;
     // 构造对象
     Animal_Ctor(&a, "hello",1, 3);
-    printf("age = %d, weight = %d \n",
+    Log(WARN,"age = %d, weight = %d",
            Animal_GetAge(&a),
            Animal_GetWeight(&a));
 
     Dog d;
     Dog_Ctor(&d, "dog2",10, 30, 4);
-    printf("age = %d, weight = %d, legs = %d \n",
-           Animal_GetAge(&d),
-           Animal_GetWeight(&d),
+    Log(WARN,"age = %d, weight = %d, legs = %d ",
+           Animal_GetAge((Animal*)&d),
+           Animal_GetWeight((Animal*)&d),
            Dog_GetLegs(&d));
 
     // 把子类对象赋值给父类指针
@@ -39,7 +40,6 @@ int main() {
     Animal_Say(pa);
 
     Dog dog;
-
     Dog_Ctor(&dog, "dog3",11, 31, 4);
 
     Animal_Say((Animal *)&dog);
@@ -68,7 +68,7 @@ int main() {
     for (int i = 0; i < 5; ++i) {
         struct Person *p = rt_list_entry(node, struct Person, node);
         if(p){
-            printf(" person name %s \n",p->name);
+            Log(INFO,"person name %s",p->name);
         }
         node = node->next;
     }

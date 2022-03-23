@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "log.h"
 
 struct AnimalVTable;  // 父类虚表的前置声明
 

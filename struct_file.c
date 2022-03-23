@@ -7,18 +7,22 @@
 
 int open(const char *file, int type){
     printf("open(%s, %d) \n",file, type);
+    return 0;
 }
 
 int read(char *buffer){
     printf("read() \n");
+    return 0;
 }
 
 int write(char *buffer){
     printf("write() \n");
+    return 0;
 }
 
-int close(){
+int close(void){
     printf("open() \n");
+    return 0;
 }
 
 static struct file_operations file = {
